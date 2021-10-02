@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.Locale;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link HiraganaZukFragment#newInstance} factory method to
@@ -26,9 +28,8 @@ public class HiraganaZukFragment extends Fragment implements View.OnClickListene
     private AlertDialog.Builder diaBuilder;
     private AlertDialog dialog;
     TextToSpeech mTTs;
+    DrawingActivity drawingActivity;
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     Button[][] buttons = new  Button[5][5];
     public HiraganaZukFragment() {
         // Required empty public constructor
@@ -56,6 +57,22 @@ public class HiraganaZukFragment extends Fragment implements View.OnClickListene
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_hiragana_zuk, container, false);
+        mTTs = new TextToSpeech(getActivity(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int i) {
+                if (i == TextToSpeech.SUCCESS){
+                    int lang = mTTs.setLanguage(Locale.JAPANESE);
+                    mTTs.setSpeechRate(1.0f);
+                    if (lang == TextToSpeech.LANG_MISSING_DATA){
+                        Log.e("TextToSpeech", "MissingSpeechData");
+                    }
+                }
+                else {
+                    Log.e("TextToSpeech", "FailToInitialize");
+
+                }
+            }
+        }, "com.google.android.tts");
         // Inflate the layout for this fragment [y,x]
         buttons[0][0] = v.findViewById(R.id.nBtnGa);
         buttons[0][1] = v.findViewById(R.id.nBtnGi);
@@ -101,6 +118,9 @@ public class HiraganaZukFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View view) {
         //mTTs.speak("Tester え",TextToSpeech.QUEUE_ADD,null);
+        if (view.getId() == R.id.Clear){
+            clear();
+        }
         Log.i("btnID", String.valueOf(view.getId()));
         for (int i=0;i<buttons.length;i++)//y Size
         {
@@ -117,11 +137,13 @@ public class HiraganaZukFragment extends Fragment implements View.OnClickListene
         diaBuilder = new AlertDialog.Builder(this.getContext());
         View popUp = getLayoutInflater().inflate(R.layout.activity_drawing,null);
         diaBuilder.setView(popUp);
-        DrawingActivity drawingActivity = popUp.findViewById(R.id.drawingActivity3);
+        drawingActivity = popUp.findViewById(R.id.drawingActivity3);
         TextView txt = popUp.findViewById(R.id.txtWord);
+        Button btnClear = popUp.findViewById(R.id.Clear);
+        btnClear.setOnClickListener(this);
         txt.setText(text);
         dialog = diaBuilder.create();
-        dialog.show();//Code tweaked from https://www.youtube.com/watch?v=4GYKOzgQDWI&ab_channel=CodingMark
+        dialog.show();//Code tweaked from
 
     }
     public boolean onLongClick(View view) {
@@ -136,5 +158,8 @@ public class HiraganaZukFragment extends Fragment implements View.OnClickListene
             }
         }
         return false;
+    }void clear(){
+        Log.e("Clear", "onClick: " );
+        drawingActivity.clear();
     }
 }

@@ -24,7 +24,8 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.jar.Attributes;
-
+/* * Code modified from class display extends view{} , found at:
+    https://www.youtube.com/watch?v=4GYKOzgQDWI&ab_channel=CodingMark*/
 public class DrawingActivity extends View {
     public android.graphics.Path path = new android.graphics.Path();
     public Paint paint = new Paint();
@@ -47,13 +48,6 @@ public class DrawingActivity extends View {
     }
 
     void init(Context context){
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-
-            }
-        }, 0, 1000000000);
         paint.setAntiAlias(true);
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.STROKE);
@@ -83,6 +77,11 @@ public class DrawingActivity extends View {
                 return true;
         }
         return true;
+    }
+
+    public void clear(){
+        paths.clear();
+        invalidate();
     }
 
     @Override

@@ -15,11 +15,9 @@ public class TitleActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_title);
 
         btn_gojuon = findViewById(R.id.btnGojuon);
-        btn_practice = findViewById(R.id.btnPractice);
         btn_Convertion = findViewById(R.id.btnConvertion);
 
         btn_gojuon.setOnClickListener(this);
-        btn_practice.setOnClickListener(this);
         btn_Convertion.setOnClickListener(this);
     }
 
@@ -29,9 +27,6 @@ public class TitleActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()){
             case(R.id.btnGojuon):
                 intent = new Intent(TitleActivity.this, MainActivity.class);
-                break;
-            case(R.id.btnPractice):
-                intent = new Intent(TitleActivity.this, TestActivity.class);
                 break;
             case(R.id.btnConvertion):
                 intent = new Intent(TitleActivity.this, ConvertionActivity.class);

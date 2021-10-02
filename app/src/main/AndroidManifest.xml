@@ -21,9 +21,6 @@
             android:name=".ConvertionActivity"
             android:exported="true" />
         <activity
-            android:name=".TestActivity"
-            android:exported="true" />
-        <activity
             android:name=".TitleActivity"
             android:exported="true">
             <intent-filter>

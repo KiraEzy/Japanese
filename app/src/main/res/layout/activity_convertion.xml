@@ -4,97 +4,111 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cardview_dark_background"
     tools:context=".ConvertionActivity">
 
     <TextView
         android:id="@+id/QuestionConversion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:text="TextView"
-        android:textSize="34sp"
+        android:layout_marginBottom="64dp"
+        android:textColor="#CCCCCC"
+        android:textSize="128sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="あ" />
 
     <TextView
         android:id="@+id/txtScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:text="Score"
+        android:layout_marginBottom="48dp"
+        android:text="4500"
+        android:textColor="#CCCCCC"
         android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/QuestionConversion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtMaxQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
         android:text="Score"
+        android:textColor="#CCCCCC"
         android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.645"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtCurrentQuestion"
+        app:layout_constraintStart_toStartOf="@+id/guideline6" />
 
     <TextView
         android:id="@+id/txtCurrentQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Score"
+        android:textColor="#CCCCCC"
         android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.336"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/txtScore"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        tools:text="10/10" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5" />
 
     <Button
         android:id="@+id/btnChoice1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="244dp"
-        android:text="Choice1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.224"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnChoice4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="112dp"
-        android:text="CHOICE4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.778"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnChoice3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="112dp"
-        android:text="CHOICE3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.224"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#252525"
+        android:textColor="#CCCCCC"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/QuestionConversion"
+        tools:text="あ" />
 
     <Button
         android:id="@+id/btnChoice2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="244dp"
-        android:text="CHOICE2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.778"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="#252525"
+        android:textColor="#CCCCCC"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnChoice1"
+        app:layout_constraintStart_toStartOf="@id/guideline6"
+        tools:text="あ" />
+
+    <Button
+        android:id="@+id/btnChoice3"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#252525"
+        android:textColor="#CCCCCC"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/btnChoice1"
+        app:layout_constraintTop_toBottomOf="@+id/btnChoice1"
+        tools:text="あ" />
+
+    <Button
+        android:id="@+id/btnChoice4"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#252525"
+        android:textColor="#CCCCCC"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnChoice3"
+        app:layout_constraintStart_toStartOf="@+id/btnChoice2"
+        tools:text="あ" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

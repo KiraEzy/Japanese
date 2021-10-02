@@ -28,7 +28,7 @@ public class HiraganaFragment extends Fragment implements View.OnClickListener, 
     private static final String ARG_PARAM2 = "param2";
     private AlertDialog.Builder diaBuilder;
     private AlertDialog dialog;
-
+    DrawingActivity drawingActivity;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -153,6 +153,9 @@ public class HiraganaFragment extends Fragment implements View.OnClickListener, 
     @Override
     public void onClick(View view) {
         //mTTs.speak("Tester え",TextToSpeech.QUEUE_ADD,null);
+        if (view.getId() == R.id.Clear){
+            clear();
+        }
         Log.i("btnID", String.valueOf(view.getId()));
         for (int i=0;i<buttons.length;i++)//y Size
         {
@@ -165,16 +168,19 @@ public class HiraganaFragment extends Fragment implements View.OnClickListener, 
             }
         }
     }
-
+    /* * Code modified from function createNewContactDialog(), found at:
+    https://www.youtube.com/watch?v=4GYKOzgQDWI&ab_channel=CodingMark*/
     void createDialog(String text){
         diaBuilder = new AlertDialog.Builder(this.getContext());
         View popUp = getLayoutInflater().inflate(R.layout.activity_drawing,null);
         diaBuilder.setView(popUp);
-        DrawingActivity drawingActivity = popUp.findViewById(R.id.drawingActivity3);
+        drawingActivity = popUp.findViewById(R.id.drawingActivity3);
         TextView txt = popUp.findViewById(R.id.txtWord);
+        Button btnClear = popUp.findViewById(R.id.Clear);
+        btnClear.setOnClickListener(this);
         txt.setText(text);
         dialog = diaBuilder.create();
-        dialog.show();//Code tweaked from https://www.youtube.com/watch?v=4GYKOzgQDWI&ab_channel=CodingMark
+        dialog.show();//Code tweaked from
 
     }
 
@@ -191,5 +197,9 @@ public class HiraganaFragment extends Fragment implements View.OnClickListener, 
             }
         }
         return false;
+    }
+    void clear(){
+        Log.e("Clear", "onClick: " );
+        drawingActivity.clear();
     }
 }
