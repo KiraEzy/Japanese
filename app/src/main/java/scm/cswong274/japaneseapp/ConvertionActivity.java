@@ -201,7 +201,7 @@ public class ConvertionActivity extends AppCompatActivity implements View.OnClic
             completion();
         }
         for (int i=0;i<answers.length;i++){
-            answers[i].setBackgroundColor(Color.BLUE);
+            answers[i].setBackgroundColor(Color.parseColor("#252525") );
         }
         float rand = new Random().nextFloat();
         int randInt = new Random().nextInt(70);
@@ -259,7 +259,7 @@ public class ConvertionActivity extends AppCompatActivity implements View.OnClic
                 }
                 else {
                     WrongAns();
-                    answers[0].setBackgroundColor(Color.RED);
+                    answers[0].setBackgroundColor(Color.parseColor("#A32E02") );
                 }
                 break;
             case(R.id.btnChoice2):
@@ -269,7 +269,7 @@ public class ConvertionActivity extends AppCompatActivity implements View.OnClic
                 }
                 else {
                     WrongAns();
-                    answers[1].setBackgroundColor(Color.RED);
+                    answers[1].setBackgroundColor(Color.parseColor("#A32E02") );
                 }
                 break;
             case(R.id.btnChoice3):
@@ -279,7 +279,7 @@ public class ConvertionActivity extends AppCompatActivity implements View.OnClic
                 }
                 else {
                     WrongAns();
-                    answers[2].setBackgroundColor(Color.RED);
+                    answers[2].setBackgroundColor(Color.parseColor("#A32E02") );
                 }
                 break;
             case(R.id.btnChoice4):
@@ -289,7 +289,7 @@ public class ConvertionActivity extends AppCompatActivity implements View.OnClic
                 }
                 else {
                     WrongAns();
-                    answers[3].setBackgroundColor(Color.RED);
+                    answers[3].setBackgroundColor(Color.parseColor("#A32E02") );
                 }
                 break;
         }

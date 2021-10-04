@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                 break;
 
             case (ZUK):
-                Log.i(TAG, "ZUK");
+                Log.i(TAG, "DAKUTEN");
                 if (HiraKata == HIRA) {
                     fragment = new HiraganaZukFragment();
                     Log.i(TAG, "HIRA");
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                     Log.i(TAG, "KATA");
                     btn_katagana.setText("KATA");
                 }
-                btn_zuk.setText("ZUK");
+                btn_zuk.setText("DAKUTEN");
                 break;
         }
         Log.i(TAG, "HiraKata = " + HiraKata + "CZA = " + CZA);
